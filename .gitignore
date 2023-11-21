@@ -1,0 +1,45 @@
+target/
+project/target
+.mvn/
+
+dev/docker/hadoop_datanode/
+dev/docker/hadoop_historyserver/
+dev/docker/hadoop_namenode/
+dev/docker/kafka/
+dev/docker/postgres-data/
+dev/docker/zoo/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+nb-configuration.xml
+
+### Avro ###
+**/AvroSchemas/src/main/java/
+
+### Checkpoints ###
+checkpoints
+
+### Logs ###
+logs
+
+### Hive Derby ###
+derby.log
