@@ -1,0 +1,42 @@
+  <configuration  xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<!--      Only for a HA mode-->
+<!--    <property>-->
+<!--      <name>dfs.client.failover.proxy.provider.LVParserPreProd</name>-->
+<!--      <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>-->
+<!--    </property>-->
+<!--    -->
+<!--    <property>-->
+<!--      <name>dfs.ha.namenodes.LVParserPreProd</name>-->
+<!--      <value>namenode1,namenode2</value>-->
+<!--    </property>-->
+<!-- -->
+<!--    -->
+<!--    <property>-->
+<!--      <name>dfs.namenode.rpc-address.LVParserPreProd.namenode1</name>-->
+<!--      <value>host.docker.internal:9000</value>-->
+<!--    </property>-->
+<!--    -->
+<!--    <property>-->
+<!--      <name>dfs.namenode.rpc-address.LVParserPreProd.namenode2</name>-->
+<!--      <value>host.docker.internal:9001</value>-->
+<!--    </property>-->
+<!-- -->
+<!--    -->
+<!--    <property>-->
+<!--      <name>dfs.nameservices</name>-->
+<!--      <value>LVParserPreProd</value>-->
+<!--    </property>-->
+<!--	-->
+<!--	 <property>-->
+<!--      <name>dfs.ha.automatic-failover.enabled</name>-->
+<!--      <value>true</value>-->
+<!--    </property>-->
+<!--	-->
+<!--	<property>-->
+<!--      <name>dfs.namenode.shared.edits.dir</name>-->
+<!--      <value>file:///tmp</value>-->
+<!--    </property>-->
+	
+    
+  </configuration>

@@ -1,0 +1,15 @@
+  <configuration  xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<!--      For a HA mode-->
+<!--    <property>-->
+<!--      <name>fs.defaultFS</name>-->
+<!--      <value>hdfs://LVParserPreProd</value>-->
+<!--    </property>-->
+
+<!--      For a HA mode disabled-->
+	<property>
+      <name>fs.defaultFS</name>
+      <value>hdfs://host.docker.internal:9000</value>
+    </property>
+	
+  </configuration>
