@@ -1,0 +1,32 @@
+---
+micronaut:
+  application:
+    name: write-sequence-to-hdfs
+---
+kafka:
+  bootstrap:
+    servers: 192.168.2.2:9092
+  consumers:
+    default:
+      specific.avro.reader: true
+      key.deserializer: org.apache.kafka.common.serialization.LongDeserializer
+      value.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      schema.registry.url: http://192.168.0.206:30001
+  producers:
+    default:
+      specific.avro.reader: true
+      key.serializer: org.apache.kafka.common.serialization.LongSerializer
+      value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      schema.registry.url: http://192.168.0.206:30001
+---
+app.config:
+    hdfs:
+      file-dir-path: hdfs://10.1.0.5:9000/tmp/oneparser/data/dmat/staging/
+      uri: hdfs://10.1.0.5:9000
+    topics:
+      groupId: DMATgroupId
+      nservice: nserrvice
+      hiveprocessor: hiveprocessor
+      listen:
+        - dlf
+        - dml_dlf

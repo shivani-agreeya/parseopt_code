@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  WriteSequenceToHDFS:
+    image: repo.vzwdt.com/writesequencetohdfs
+    container_name: WriteSequenceToHDFS
+    environment:
+      - kafka.bootstrap.servers=192.168.2.2:9092
+      - logger.levels=INFO
+      #or mount application.yml to /app/resources/
