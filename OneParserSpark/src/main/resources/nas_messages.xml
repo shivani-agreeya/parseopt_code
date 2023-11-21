@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+  <Message name="ATTACH ACCEPT" msgType="NAS" layer="EMM" description="This message is sent by the network to the UE to indicate that the corresponding attach request has been accepted.">
+    <InformationElements>
+	  <InformationElement name="EPS attach result" type="EPS attach result" presence="M" isVZW="true" length="0.5"/>
+	  <InformationElement name="Spare half octet" type="Spare half octet" presence="M" isVZW="false" length="0.5"/>
+	  <InformationElement name="T3412" type="GPRS timer" presence="M" isVZW="true" length="1"/>
+	  <InformationElement name="TAI list" type="Tracking area identity list" presence="M" isVZW="true" isFixLength="false" min-len="7" max-len="97"/>
+	  <InformationElement name="ESM message container" type="ESM message container" presence="M" isVZW="true" isFixLength="false" min-len="2" max-len="65535"/>
+	  <InformationElement name="GUTI" type="EPS mobile identity" presence="O" isVZW="true" IEI="50" length="13"/>
+	  <InformationElement name="Location area identification" type="Location area identification" presence="O" isVZW="false" IEI="13" length="6"/>
+	  <InformationElement name="MS identity" type="Mobile identity" presence="O" isVZW="false" isFixLength="false" IEI="23" min-len="7" max-len="10"/>
+	  <InformationElement name="EMM cause" type="EMM cause" presence="O" isVZW="true" IEI="53" length="2"/>
+	  <InformationElement name="T3402" type="GPRS timer" presence="O" isVZW="true" IEI="17" length="2"/>
+	  <InformationElement name="T3423" type="GPRS timer" presence="O" isVZW="true" IEI="59" length="2"/>
+	  <InformationElement name="Equivalent PLMNs" type="PLMN list" presence="O" isVZW="false" isFixLength="false" IEI="4A" min-len="5" max-len="47"/>
+	  <InformationElement name="Emergency number list" type="Emergency number list" presence="O" isVZW="false" isFixLength="false" IEI="34" min-len="5" max-len="50"/>
+	  <InformationElement name="EPS network feature support" type="EPS network feature support" presence="O" isVZW="true" IEI="64" length="3"/>
+	  <InformationElement name="Additional update result" type="Additional update type" isVZW="true" IEI="F-" length="1"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="ATTACH REQUEST" msgType="NAS" layer="EMM" description="This message is sent by the UE to the network in order to perform an attach procedure">
+    <InformationElements>
+	  <InformationElement name="EPS attach type" type="EPS attach type" presence="M" isVZW="true" length="0.5"/>
+	  <InformationElement name="NAS key set identifier" type="NAS key set identifier" presence="M" isVZW="false" length="0.5"/>
+	  <InformationElement name="Old GUTI or IMSI" type="EPS mobile identity" presence="M" isVZW="true" isFixLength="false" min-len="5" max-len="12"/>
+	  <InformationElement name="UE network capability" type="UE network capability" presence="M" isVZW="false" isFixLength="false" min-len="3" max-len="14"/>
+	  <InformationElement name="ESM message container" type="ESM message container" presence="M" isVZW="true" isFixLength="false" min-len="2" max-len="65535"/>
+	  <InformationElement name="Old P-TMSI signature" type="P-TMSI signature" presence="O" isVZW="false" IEI="19" length="4"/>
+	  <InformationElement name="Additional GUTI" type="EPS mobile identity" presence="O" isVZW="false" IEI="50" length="13"/>
+	  <InformationElement name="Last visited registered TAI" type="Tracking area identity" presence="O" isVZW="true" IEI="52" length="6"/>
+	  <InformationElement name="DRX parameter" type="DRX parameter" presence="O" isVZW="true" IEI="5C" length="3"/>
+	  <InformationElement name="MS network capability" type="MS network capability" presence="O" isVZW="false" IEI="31" isFixLength="false" min-len="4" max-len="10"/>
+	  <InformationElement name="Old location area identification" type="Location area identification" presence="O" isVZW="false" IEI="13" length="1"/>
+	  <InformationElement name="TMSI status" type="TMSI status" presence="O" isVZW="false" IEI="9-" length="1"/>
+	  <InformationElement name="Mobile station classmark 2" type="Mobile station classmark 2" presence="O" isVZW="false" IEI="11" length="5"/>
+	  <InformationElement name="Mobile station classmark 3" type="Mobile station classmark 3" presence="O" isVZW="false" IEI="20" isFixLength="false" min-len="2" max-len="34"/>
+	  <InformationElement name="Supported Codecs" type="Supported Codec List" presence="O" isVZW="false" IEI="40" isFixLength="false" min-len="5" max-len="n"/>
+	  <InformationElement name="Additional update type" type="Additional update type" presence="O" isVZW="true" IEI="F-" length="1"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="ATTACH REJECT" msgType="NAS" layer="EMM" description="This message is sent by the network to the UE to indicate that the corresponding attach request has been rejected">
+    <InformationElements>
+	  <InformationElement name="EMM cause" type="EMM cause" presence="M" isVZW="true" length="1"/>
+	  <InformationElement name="ESM message container" type="ESM message container" presence="O" isVZW="true" isFixLength="false" IEI="78" min-len="6" max-len="65536"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="ATTACH COMPLETE" msgType="NAS" layer="EMM" description="This message is sent by the UE to the network in response to an ATTACH ACCEPT message">
+    <InformationElements>
+	  <InformationElement name="ESM message container" type="ESM message container" presence="M" isVZW="false" isFixLength="false" min-len="5" max-len="65535"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="AUTHENTICATION FAILURE" msgType="NAS" layer="EMM" description="This message is sent by the UE to the network to indicate that authentication of the network has failed">
+    <InformationElements>
+	  <InformationElement name="EMM cause" type="EMM cause" presence="M" isVZW="true" length="1"/>
+	  <InformationElement name="Authentication failure parameter" type="Authentication failure parameter" presence="O" isVZW="false" IEI="30" length="16"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="AUTHENTICATION REJECT" msgType="NAS" layer="EMM" description="This message is sent by the network to the UE to indicate that the authentication procedure has failed and that the UE
+    shall abort all activites">
+    <InformationElements>
+	</InformationElements>
+  </Message>
+  
+  <Message name="AUTHENTICATION REQUEST" msgType="NAS" layer="EMM" description="This message is sent by the network to the UE to initiate authentication of the UE identity">
+    <InformationElements>
+	  <InformationElement name="NAS key set identifier" type="NAS key set identifier" presence="M" isVZW="false" length="0.5"/>
+	  <InformationElement name="Spare half octet" type="Spare half octet" presence="M" isVZW="false" length="0.5"/>
+	  <InformationElement name="Authentication parameter RAND(EPS challenge)" presence="M" isVZW="false" length="16"/>
+	  <InformationElement name="Authentication parameter AUTN(EPS challenge)" presence="M" isVZW="false" length="17"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="AUTHENTICATION RESPONSE" msgType="NAS" layer="EMM" description="This message is sent by the UE to the network to deliver a calculated authentication response to the network">
+    <InformationElements>
+	  <InformationElement name="Authentication response parameter" type="Authentication response parameter" presence="M" isVZW="false" isFixLength="false" min-len="5" max-len="17"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="CS SERVICE NOTIFICATION" msgType="NAS" layer="EMM" description="This message is sent by the network when a paging request with CS call indicator was received via SGs for a UE, and a 
+    NAS signalling connection is already established for the UE">
+	<InformationElements>
+	  <InformationElement name="Paging identity" type="Paging identity" presence="M" isVZW="false" length="1"/>
+	  <InformationElement name="CLI" type="CLI" presence="O" isVZW="true" isFixLength="false" IEI="60" min-len="3" max-len="14"/>
+	  <InformationElement name="SS Code" type="SS Code" presence="O" isVZW="true" IEI="61" length="2"/>
+	  <InformationElement name="LCS indicator" type="LCS indicator" presence="O" isVZW="true" IEI="62" length="2"/>
+	  <InformationElement name="LCS client identity" type="LCS client identity" presence="O" isVZW="true" isFixLength="false" IEI="63" min-len="3" max-len="257"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="DETACH ACCEPT" msgType="NAS" layer="EMM" description="This message is sent by the network to indicate that the detach procedure has been completed">
+    <InformationElements>
+	</InformationElements>
+  </Message>
+  
+  <Message name="DETACH REQUEST(UE)" msgType="NAS" layer="EMM" description="This message is sent by the UE to request the release of an EMM context">
+    <InformationElements>
+	  <InformationElement name="Detach type" type="Detach type(UE)" presence="M" isVZW="true" length="0.5"/>
+	  <InformationElement name="NAS key set identifier" type="NAS key set identifier" presence="M" isVZW="false" length="0.5"/>
+	  <InformationElement name="EPS mobile identity" type="EPS mobile identity" presence="M" isVZW="true" isFixLength="false" min-len="5" max-len="12"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="DETACH REQUEST(NW)" msgType="NAS" layer="EMM" description="This message is sent by the networ to request the release of an EMM context">
+    <InformationElements>
+	  <InformationElement name="Detach type" type="Detach type(NW)" presence="M" isVZW="true" length="0.5"/>
+	  <InformationElement name="Spare half octet" type="Spare half octet" presence="M" isVZW="false" length="0.5"/>
+	  <InformationElement name="EMM cause" type="EMM cause" presence="M" isVZW="true" length="2"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="DOWNLINK NAS TRANSPORT" msgType="NAS" layer="EMM" description="This message is sent by the network to the UE in order to carry an SMS message in encapsulated format">
+    <InformationElements>
+	  <InformationElement name="NAS message container" type="NAS message container" presence="M" isVZW="false" isFixLength="false" min-len="3" max-len="252"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="EMM INFORMATION" msgType="NAS" layer="EMM" description="This message is sent by the network at any time during EMM context is established to send certain information to the UE">
+    <InformationElements>
+	  <InformationElement name="Full name for network" type="Network name" presence="O" isVZW="true" isFixLength="false" IEI="43" min-len="3" max-len="256"/>
+	  <InformationElement name="Short name for network" type="Network name" presence="O" isVZW="true" isFixLength="false" IEI="45" min-len="3" max-len="256"/>
+	  <InformationElement name="Local time zone" type="Time zone" presence="O" isVZW="true" IEI="46" length="2"/>
+	  <InformationElement name="Universal time and local time zone" type="Time zone and time" presence="O" isVZW="true" IEI="47" length="8"/>
+	  <InformationElement name="Network daylight saving time" type="Daylight saving time" presence="O" isVZW="true" IEI="49" length="3"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="EMM STATUS" msgType="NAS" layer="EMM" description="This message is sent by the UE or by the network at any time to report certain error conditions listed in clause 7">
+    <InformationElements>
+	  <InformationElement name="EMM cause" type="EMM cause" presence="M" isVZW="true" length="1"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="EXTENDED SERVICE REQUEST" msgType="NAS" layer="EMM" description="This message is sent by the UE to the network to initiate a CS fallback call or respond to a mobile terminated CS 
+    fallback request from the network">
+    <InformationElements>
+	  <InformationElement name="Service type" type="Service type" presence="M" isVZW="false" length="0.5"/>
+	  <InformationElement name="NAS key set identifier" type="NAS key set identifier" presence="M" isVZW="false" length="0.5"/>
+	  <InformationElement name="M-TMSI" type="Mobile identity" presence="M" isVZW="false" length="6"/>
+	  <InformationElement name="CSFB response" type="CSFB response" presence="O" isVZW="true" IEI="B-" length="1"/>
+	  <InformationElement name="EPS bearer context status" type="EPS bearer context status" presence="O" isVZW="true" IEI="57" length="4"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="GUTI REALLOCATION COMMAND" msgType="NAS" layer="EMM" description="This message is sent by the network to the UE to reallocate a GUTI and optionally to provide a new TAI list">
+    <InformationElements>
+	  <InformationElement nam="GUTI" type="EPS mobile identity" presence="M" isVZW="true" length="12"/>
+	  <InformationElement name="TAI list" type="Tracking area identity list" presence="O" isVZW="true" isFixLength="false" IEI="54" min-len="8" max-len="98"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="GUTI REALLOCATION COMPLETE" msgType="NAS" layer="EMM" description="This message is sent by the UE to the network to indicate that reallocation of a GUTI has taken place">
+    <InformationElements>
+	</InformationElements>
+  </Message>
+  
+  <Message name="IDENTITY REQUEST" msgType="NAS" layer="EMM" description="This message is sent by the network to the UE to request the UE to provide the specified identity">
+    <InformationElements>
+	  <InformationElement name="Identity type" type="Identity type 2" presence="M" isVZW="true" length="0.5"/>
+	  <InforamtionElement name="Spare half octet" type="Spare half octet" presence="M" isVZW="false" length="0.5"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="IDENTITY RESPONSE" msgType="NAS" layer="EMM" description="This message is sent by the UE to the network in response to an IDENTITY REQUEST message and provides the requested identity">
+    <InformationElements>
+	  <InformationElement name="Mobile identity" type="Mobile identity" presence="M" isVZW="true" isFixLength="false" min-len="4" max-len="10"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="SECURITY MODE COMMAND" msgType="NAS" layer="EMM" description="This message is sent by the network to the UE to establish NAS signalling security">
+    <InformationElements>
+	  <InformationElement name="Selected NAS security algorithms" type="NAS security algorithms" presence="M" isVZW="false" length="1"/>
+	  <InformationElement name="NAS key set identifier" type="NAS key set identifier" presence="M" isVZW="false" length="0.5"/>
+	  <InformationElement name="Spare half octet" type="Spare half octet" presence="M" isVZW="false" length="0.5"/>
+	  <InformationElement name="Replayed UE security capabilities" type="UE security capability" presence="M" isVZW="false" isFixLength="false" min-len="3" max-len="6"/>
+	  <InformationElement name="IMEISV request" type="IMEISV request" presence="O" isVZW="false" IEI="C-" length="1"/>
+	  <InformationElement name="Replayed nonce ue" type="Nonce" presence="O" isVZW="false" IEI="55" length="5"/>
+	  <InformationElement name="Nonce mme" type="Nonce" presence="O" isVZW="false" IEI="56" length="5"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="SECURITY MODE COMPLETE" msgType="NAS" layer="EMM" description="This message is sent by the UE to the network in response to a SECURITY MODE COMMAND message">
+    <InformationElements>
+	  <InformationElement name="IMEISV" type="Mobile identity" presence="O" isVZW="false" IEI="23" length="11"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="SECURITY MODE REJECT" msgType="NAS" layer="EMM" description="This message is sent by the UE to the network to indicate that the corresponding security mode command has been rejected">
+    <InformationElements>
+	  <InformationElement name="EMM cause" type="EMM cause" presence="M" isVZW="true" length="1"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="SERVICE REJECT" msgType="NAS" layer="EMM" description="This message is sent by the network to the UE in order to reject the service request procedure">
+    <InformationElements>
+	  <InformationElement name="EMM cause" type="EMM cause" presence="M" isVZW="true" length="1"/>
+	  <InformationElement name="T3442" type="GPRS timer" presence="CO" isVZW="false" IEI="5B" length="2"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="SERVICE REQUEST" msgType="NAS" layer="EMM" description="This message is sent by the UE to the network to request the establishment of a NAS signalling connection and of the radio and S1
+    bearers. Its structure does not floow the structure of standerd layer 3 message">
+	<InformationElements>
+	  <InformationElement name="KSI and sequence number" type="KSI and sequence number" presence="M" isVZW="false" length="1"/>
+	  <InformationElement name="Message authentication code" type="Short MAC" presence="M" isVZW="false" length="2"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="TRACKING AREA UPDATE ACCEPT" msgType="NAS" layer="EMM" description="This message is sent by the network to the UE to provide the UE with EPS mobility management related data in response
+    to a tracking area update request message">
+	<InformationElements>
+	  <InformationElement name="EPS update result" type="EPS update result" presence="M" isVZW="true" length="0.5"/>
+	  <InformationElement name="Spare half octet" type="Spare half octet" presence="M" isVZW="false" length="0.5"/>
+	  <InformationElement name="T3412" type="GPRS timer" presence="O" isVZW="true" IEI="5A" length="2"/>
+	  <InformationElement name="GUTI" type="EPS mobile identity" presence="O" isVZW="true" IEI="50" length="13"/>
+	  <InformationElement name="TAI list" type="Tracking area identity list" presence="O" isVZW="true" isFixLength="false" IEI="54" min-len="8" max-len="98"/>
+	  <InformationElement name="EPS bearer context status" type="EPS bearer context status" presence="O" isVZW="true" IEI="57" length="4"/>
+	  <InformationElement name="Location area identification" type="Location area identification" presence="O" isVZW="false" IEI="13" length="6"/>
+	  <InformationElement name="MS identity" type="Mobile identity" presence="O" isVZW="false" IEI="23" isFixLength="false" min-len="7" max-len="10"/>
+	  <InformationElement name="EMM cause" type="EMM cause" presence="O" isVZW="true" IEI="53" length="2"/>
+	  <InformationElement name="T3402" type="GPRS timer" presence="O" isVZW="true" IEI="17" length="2"/>
+	  <InformationElement name="T3423" type="GPRS timer" presence="O" isVZW="false" IEI="59" length="2"/>
+	  <InformationElement name="Equivalent PLMNs" type="PLMN list" presence="O" isVZW="true" isFixLength="false" IEI="4A" min-len="5" max-len="47"/>
+	  <InformationElement name="Emergency number list" type="Emergency number list" presence="O" isVZW="false" isFixLength="false" IEI="34" min-len="5" max-len="50"/>
+	  <InformationElement name="EPS network feature support" type="EPS network feature support" presence="O" isVZW="true" IEI="64" length="3"/>
+	  <InformationElement name="Additional update result" type="Additional update result" presence="O" isVZW="false" IEI="F-" length="1"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="TRACKING AREA UPDATE COMPLETE" msgType="NAS" layer="EMM" description="This message shall be sent by the UE to the network inresponse to a tracking area update accept message if a GUTI
+    has been changed or a new TMSI has been assgined">
+	<InformationElements>
+	</InformationElements>
+  </Message>
+  
+  <Message name="TRACKING AREA UPDATE REJECT" msgType="NAS" layer="EMM" description="This message is sent by the network to the UE in order to reject the tracking area updating procedure.">
+    <InformationElements>
+	  <InformationElement name="EMM cause" type="EMM cause" presence="M" isVZW="true" length="1"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="TRACKING AREA UPDATE REQUEST" msgType="NAS" layer="EMM" description="The purpose of sending the tracking area update request by the UE to the network are described in subclause 5.5.3.1">
+    <InformationElements>
+	  <InformationElement name="EPS update type" type="EPS update type" presence="M" isVZW="true" length="0.5"/>
+	  <InformationElement name="NAS key set identifier" type="NAS key set identifier" presence="M" isVZW="false" length="0.5"/>
+	  <InformationElement name="Old GUTI" type="EPS mobile identity" presence="M" isVZW="true" length="12"/>
+	  <InformationElement name="Non-current native NAS key set identifier" type="NAS key set identifier" presence="O" isVZW="false" IEI="B-" length="1"/>
+	  <InformationElement name="GPRS ciphering key sequence number" type="Ciphering key sequence number" presence="O" isVZW="false" IEI="8-" length="1"/>
+	  <InformationElement name="Old P-TMSI signature" type="P-TMSI signature" presence="O" isVZW="false" IEI="19" length="4"/>
+	  <InformationElement name="Additional GUTI" type="EPS mobile identity" presence="O" isVZW="false" IEI="50" length="13"/>
+	  <InformationElement name="Nonce ue" type="Nonce" presence="O" isVZW="false" IEI="55" length="5"/>
+	  <InformationElement name="UE network capability" type="UE network capability" presence="O" isVZW="false" IEI="58" isFixLength="false" min-len="4" max-len="15"/>
+	  <InformationElement name="Last visited registered TAI" type="Tracking area identity" presence="O" isVZW="true" IEI="52" length="6"/>
+	  <InformationElement name="DRX parameter" type="DRX parameter" presence="O" isVZW="true" IEI="5C" length="3"/>
+	  <InformationElement name="UE radio capability information update needed" type="UE radio capability information update needed" presence="O" isVZW="false" IEI="A-" length="1"/>
+	  <InformationElement name="EPS bearer context status" type="EPS bearer context status" presence="O" isVZW="true" IEI="57" length="4"/>
+	  <InformationElement name="MS network capability" type="MS network capability" presence="O" isVZW="false" IEI="31" isFixLength="false" min-len="4" max-len="10"/>
+	  <InformationElement name="Old location area identification" type="Location area identification" presence="O" isVZW="false" IEI="13" length="6"/>
+	  <InformationElement name="TMSI status" type="TMSI status" presence="O" isVZW="false" IEI="9-" length="1"/>
+	  <InformationElement name="Mobile station classmark 2" type="Mobile station classmark 2" presence="O" isVZW="false" IEI="11" length="5"/>
+	  <InformationElement name="Mobile station classmark 3" type="Mobile station classmark 3" presence="O" isVZW="false" IEI="20" isFixLength="false" min-len="2" max-len="34"/>
+	  <InformationElement name="Supported Codecs" type="Supported Codec List" presence="O" isVZW="false" IEI="40" isFixLength="false" min-len="5" max-len="256"/>
+	  <InformationElement name="Additional update type" type="Additional update type" presence="O" isVZW="true" IEI="F-" length="1"/>
+	  <InformationElement name="Voice domain preference and UE's usage setting" type="Voice domain preference and UE's usage setting" presence="O" isVZW="false" IEI="5D" length="3"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="UPLINK NAS TRANSPORT" msgType="NAS" layer="EMM" description="This message is sent by the UE to the network in order to carry an SMS message in encapsulated format">
+    <InformationElements>
+	  <InformationElement name="NAS message container" type="NAS message container" presence="M" isVZW="false" isFixLength="false" min-len="3" max-len="252"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="DOWNLINK GENERIC NAS TRANSPORT" msgType="NAS" layer="EMM" description="This message is sent by the network to the UE in order to carry an application message in encapsulated format">
+    <InformationElements>
+	  <InformationElement name="Generic message container type" type="Generic message container type" presence="M" isVZW="false" length="1"/>
+	  <InformationElement name="Generic message container" type="Generic message container" presence="M" isVZW="false" isFixLength="false" min-len="3" max-len="256"/>
+	  <InformationElement name="Additional information" type="Additional information" presence="O" isVZW="false" isFixLength="false" min-len="3" max-len="256"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="UPLINK GENERIC NAS TRANSPORT" msgType="NAS" layer="EMM" description="This message is sent by the UE to the network in order to carry an application protocol message in encapsulated format">
+    <InformationElements>
+	  <InformationElement name="Generic message container type" type="Generic message container type" presence="M" isVZW="false" length="1"/>
+	  <InformationElement name="Generic message container" type="Generic message container" presence="M" isVZW="false" isFixLength="false" min-len="3" max-len="256"/>
+	  <InformationElement name="Additional information" type="Additional information" presence="O" isVZW="false" isFixLength="false" min-len="3" max-len="256"/>
+	</InformationElements>
+  </Message>
+  
+  <!--  ESM messages -->
+  
+  <Message name="PDN CONNECTIVITY REQUEST" msgType="NAS" layer="ESM" description="This message is sent by the UE to the network to initiate establishment of a PDN connection">
+    <InformationElements>
+	  <InformationElement name="Request type" type="Request type" presence="M" isVZW="true" length="0.5"/>
+	  <InformationElement name="PDN type" type="PDN type" presence="M" isVZW="true" length="0.5"/>
+	  <InformationElement name="ESM information transfer flag" type="ESM information transfer flag" presence="O" isVZW="true" IEI="D-" length="1"/>
+	  <InformationElement name="Access point name" type="Access point name" presence="O" isVZW="true" IEI="28" isFixLength="false" min-len="3" max-len="102"/>
+	  <InformationElement name="Protocol configuration options" type="Protocol configuration options" presence="O" isVZW="true" IEI="27" isFixLength="false" min-len="3" max-len="253"/>
+	</InformationElements>
+  </Message>
+  
+  <!-- Optionla added -->
+  <Message name="ACTIVATE DEDICATED EPS BEARER CONTEXT ACCEPT" msgType="NAS" layer="ESM" description="Thie message is sent by the UE to the network to acknowledge activation of a dedicated EPS bearer
+    context associated with the same PDN address and APN as an already active EPS bearer context">
+	<InformationElements>
+	  <InformationElement name="Protocol configuration options" type="Protocol configuration options" presence="O" isVZW="true" IEI="27" isFixLength="false" min-len="3" max-len="253"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="ACTIVATE DEDICATED EPS BEARER CONTEXT REJECT" msgType="NAS" layer="ESM" description="This message is sent by the UE to the network to reject activation of a dedicated EPS bearer context">
+    <InformationElements>
+	  <InformationElement name="ESM cause" type="ESM cause" presence="M" isVZW="true" length="1"/>
+	  <InformationElement name="Protocol configuration options" type="Protocol configuration options" presence="O" isVZW="true" IEI="27" isFixLength="false" min-len="3" max-len="253"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="ACTIVATE DEDICATED EPS BEARER CONTEXT REQUEST" msgType="NAS" layer="ESM" description="This message is sent by the network to the UE to request activation of a dedicated EPS bearer
+    context associated with the same PDN address and APn as an already active default EPS bearer context">
+    <InformationElements>
+	  <InformationElement name="Linked EPS bearer identity" type="Linked EPS bearer identity" presence="M" isVZW="true" length="0.5"/>
+	  <InformationElement name="Spare half octet" type="Spare half octet" presence="M" isVZW="false" length="0.5"/>
+	  <InformationElement name="EPS QoS" type="EPS quality of service" presence="M" isVZW="true" isFixLength="false" min-len="2" max-len="10"/>
+	  <InformationElement name="TFT" type="Traffic flow template" presence="M" isVZW="true" isFixLength="false" min-len="2" max-len="256"/>
+	  <InformationElement name="Transaction identity" type="Transaction identifier" presence="O" isVZW="false" isFixLength="false" IEI="5D" min-len="3" max-len="4"/>
+	  <InformationElement name="Negotiated QoS" type="Quality of service" presence="O" isVZW="true" isFixLength="false" IEI="30" min-len="14" max-len="18"/>
+	  <InformationElement name="Negotiated LLC SAPI" type="LLC service access point identifier" presence="O" isVZW="false" IEI="32" length="2"/>
+	  <InformationElement name="Radio priority" type="Radio priority" presence="O" isVZW="false" IEI="8-" length="1"/>
+	  <InformationElement name="Packet flow Identifier" type="Packet flow Identifier" presence="O" isVZW="false" IEI="34" length="3"/>
+	  <InformationElement name="Protocol configuration options" type="Protocol configuration options" presence="O" isVZW="true" isFixLength="false" IEI="27" min-len="3" max-len="253"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="ACTIVATE DEFAULT EPS BEARER CONTEXT ACCEPT" msgType="NAS" layer="ESM" description="This message is sent by the UE to the network to acknowledge activation of a default EPS bearer context.">
+    <InformationElements>
+	  <InformationElement name="Protocol configuration options" type="Protocol configuration options" presence="O" isVZW="false" isFixLength="false" IEI="27" min-len="3" max-len="253"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="ACTIVATE DEFAULT EPS BEARER CONTEXT REJECT" msgType="NAS" layer="ESM" description="This message is sent by UE to the network to reject activation of a default EPS bearer context">
+    <InformationElements>
+	  <InformationElement name="ESM cause" type="ESM cause" presence="M" isVZW="true" length="1"/>
+	  <InformationElement name="Protocol configuration options" type="Protocol configuration options" presence="O" isVZW="false" isFixLength="false" IEI="27" min-len="3" max-len="253"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="ACTIVATE DEFAULT EPS BEARER CONTEXT REQUEST" msgType="NAS" layer="ESM" description="This message is sent by the network to the UE to request activation of a default EPS bearer context">
+    <InformationElements>
+	  <InformationElement name="EPS QoS" type="EPS quality of service" presence="M" isVZW="true" isFixLength="false" min-len="2" max-len="10"/>
+	  <InformationElement name="Access point name" type="Access point name" presence="M" isVZW="true" isFixLength="false" min-len="2" max-len="101"/>
+	  <InformationElement name="PDN address" type="PDN address" presence="M" isVZW="true" isFixLength="false" min-len="6" max-len="14"/>
+	  <InformationElement name="Transaction identifier" type="Transaction identifier" presence="O" isVZW="false" isFixLength="false" IEI="5D" min-len="3" max-len="4"/>
+	  <InformationElement name="Negotiated QoS" type="Quality of service" presence="O" isVZW="false" isFixLength="false" IEI="30" min-len="14" max-len="18"/>
+	  <InformationElement name="Negotiated LLC SAPI" type="LLC service access point identifier" presence="O" isVZW="false" IEI="32" length="2"/>
+	  <InformationElement name="Radio prioriy" type="Radio priority" presence="O" isVZW="false" IEI="8-" length="1"/>
+	  <InformationElement name="Packet flow Identifier" type="Packet flow Identifier" presence="O" isVZW="false" IEI="34" length="3"/>
+	  <InformationElement name="APN-AMBR" type="APN aggregate maximum bit rate" presence="O" isVZW="true" isFixLength="false" IEI="5E" min-len="4" max-len="8"/>
+	  <InformationElement name="ESM cause" type="ESM cause" presence="O" isVZW="true" IEI="58" length="2"/>
+	  <InformationElement name="Protocol configuration options" type="Protocol configuration options" presence="O" isVZW="true" isFixLength="false" IEI="27" min-len="3" max-len="253"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="BEARER RESOURCE ALLOCATION REJECT" msgType="NAS" layer="ESM" description="This message is sent by the network to the UE to reject the allocation of a dedicated bearer resource">
+    <InformationElements>
+	  <InformationElement name="ESM cuase" type="ESM cause" presence="M" isVZW="true" length="1"/>
+	  <InformationElement name="Protocol configuration options" type="Protocol configuration options" presence="O" isVZW="true" isFixLength="false" IEI="27" min-len="3" max-len="253"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="BEARER RESOURCE ALLOCATION REQUEST" msgType="NAS" layer="ESM" description="This message is sent by the UE to the network to request the allocation of a dedicated bearer resource">
+    <InformationElements>
+	  <InformationElement name="Linked EPS bearer identity" type="Linked EPS bearer identity" presence="M" isVZW="false" length="0.5"/>
+	  <InformationElement name="Spare half octet" type="Spare half octet" presence="M" isVZW="false" length="0.5"/>
+	  <InformationElement name="Traffic flow aggregate" type="Traffic flow aggregate descritpion" presence="M" isVZW="false" isFixLength="false" min-len="2" max-len="256"/>
+	  <InformationElement name="Required traffic flow QoS" type="EPS quality of service" presence="M" isVZW="true" isFixLength="false" min-len="2" max-len="10"/>
+	  <InformationElement name="Protocol configuration options" type="Protocol configuration options" presence="O" isVZW="true" isFixLength="false" IEI="27" min-len="3" max-len="253"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="BEARER RESOURCE MODIFICATION REJECT" msgType="NAS" layer="ESM" description="This message is sent by the network to the UE to reject the modification of a dedicated bearer resource">
+    <InformationElements>
+	  <InformationElement name="ESM cause" type="ESM cause" presence="M" isVZW="true" length="1"/>
+	  <InformationElement name="Protocol configuration options" type="Protocol configuration options" presence="O" isVZW="true" isFixLength="false" IEI="27" min-len="3" max-len="253"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="BEARER RESOURCE MODIFICATION REQUEST" msgType="NAS" layer="ESM" description="This message is sent by the UE to the network to request the modification of a dedicated bearer resource">
+    <InformationElements>
+	  <InformationElement name="EPS bearer identity for packet fileter" type="Linked EPS bearer identity" presence="M" isVZW="false" length="0.5"/>
+	  <InformationElement name="Spare half octet" type="Spare half octet" presence="M" isVZW="false" length="0.5"/>
+	  <InformationElement name="Traffic flow aggregate" type="Traffic flow aggregate description" presence="M" isVZW="false" isFixLength="false" min-len="2" max-len="256"/>
+	  <InformationElement name="Required traffic flow QoS" type="EPS quality of service" presence="O" isVZW="true" isFixLength="false" IEI="5B" min-len="3" max-len="11"/>
+	  <InformationElement name="ESM cause" type="ESM cause" presence="O" isVZW="true" IEI="58" length="2"/>
+	  <InformationElement name="Protocol configuration options" type="Protocol configuration options" presence="O" isVZW="true" isFixLength="false" IEI="27" min-len="3" max-len="253"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="DEACTIVATE EPS BEARER CONTEXT ACCEPT" msgType="NAS" layer="ESM" description="This message is sent by the UE to acknowledge deactivation of the EPS bearer context requested in the 
+    corresponding Deactivate EPS bearer context request message">
+	<InformationElements>
+	  <InformationElement name="Protocol configuration options" type="Protocol configuration options" presence="O" isVZW="false" isFixLength="false" IEI="27" min-len="3" max-len="253"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="DEACTIVATE EPS BEARER CONTEXT REQUEST" msgType="NAS" layer="ESM" description="This message is sent by the network to request deactivation of an active EPS bearer context">
+    <InformationElements>
+	  <InformationElement name="ESM cause" type="ESM cause" presence="M" isVZW="true" length="1"/>
+	  <InformationElement name="Protocol configuration options" type="Protocol configuration options" presence="O" isVZW="false" isFixLength="false" IEI="27" min-len="3" max-len="253"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="ESM INFORMATION REQUEST" msgType="NAS" layer="ESM" description="This message is sent by the network to the UE to request the UE to provide ESM information">
+    <InformationElements>
+	</InformationElements>
+  </Message>
+  
+  <Message name="ESM INFORMATION RESPONSE" msgType="NAS" layer="ESM" description="This message is sent by the UE to the network in response to an ESM INFORMATION REQUEST message and provides the requested
+    ESM information">
+	<InformationElements>
+	  <InformationElement name="Access point name" type="Access point name" presence="O" isVZW="true" isFixLength="false" IEI="28" min-len="3" max-len="102"/>
+	  <InformationElement name="Protocol configuration options" type="Protocol configuration options" presence="O" isVZW="false" isFixLength="false" IEI="27" min-len="3" max-len="253"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="ESM STATUS" msgType="NAS" layer="ESM" description="This message is sent by the network or the UE to pass information on the status of the indicated EPS bearer context and report certain
+    error conditions">
+	<InformationElements>
+	  <InformationElement name="ESM cause" type="ESM cause" presence="M" isVZW="true" length="1"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="MODIFY EPS BEARER CONTEXT ACCEPT" msgType="NAS" layer="ESM" description="This message is sent by the UE to the network to acknowledge the modification of an active EPS bearer context">
+    <InformationElements>
+	  <InformationElement name="Protocol configuration options" type="Protocol configuration options" presence="O" isVZW="false" isFixLength="false" IEI="27" min-len="3" max-len="253"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="MODIFY EPS BEARER CONTEXT REJECT" msgType="NAS" layer="ESM" description="This message is sent by the UE or the network to reject a modification of an active EPS bearer context">
+    <InformationElements>
+	  <InformationElement name="ESM cause" type="ESM cause" presence="M" isVZW="true" length="1"/>
+	  <InformationElement name="Protocol configuration options" type="Protocol configuration options" presence="O" isVZW="false" isFixLength="false" IEI="27" min-len="3" max-len="253"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="MODIFY EPS BEARER CONTEXT REQUEST" msgType="NAS" layer="ESM" description="This message is sent by the network to the UE to request modification of an active EPS bearer context">
+    <InformationElements>
+	  <InformationElement name="New EPS QoS" type="EPS quality of service" presence="O" isVZW="true" isFixLength="false" IEI="5B" min-len="3" max-len="11"/>
+	  <InformationElement name="TFT" type="Traffic flow template" presence="O" isVZW="true" isFixLength="false" IEI="36" min-len="3" max-len="256"/>
+	  <InformationElement name="New QoS" type="Quality of service" presence="O" isVZW="true" isFixLength="false" IEI="30" min-len="14" max-len="18"/>
+	  <InformationElement name="Negotiated LLC SAPI" type="LLC service access point identifier" presence="O" isVZW="false" IEI="32" length="2"/>
+	  <InformationElement name="Radio priority" type="Radio priority" presence="O" isVZW="false" IEI="8-" length="1"/>
+	  <InformationElement name="Packet flow Identifier" type="Packet flow Identifier" presence="O" isVZW="false" IEI="34" length="3"/>
+	  <InformationElement name="APN-AMBR" type="APN aggregate maximum bit rate" presence="O" isVZW="true" isFixLength="false" IEI="5E" min-len="4" max-len="8"/>
+	  <InformationElement name="Protocol configuration options" type="Protocol configuration options" presence="O" isVZW="true" isFixLength="false" IEI="27" min-len="3" max-len="253"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="NOTIFICATION" msgType="NAS" layer="ESM" description="This message is sent by the network to inform the UE about events which are relevant for the upper layer using an EPS bearer context
+    or having requested a procedure transaction">
+	<InformationElements>
+	  <InformationElement name="Notification indicator" type="Notification indicator" presence="M" isVZW="true" length="2"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="PDN CONNECTIVITY REJECT" msgType="NAS" layer="ESM" description="This message is sent by the network to the UE to reject establishment of a PDN connection">
+    <InformationElements>
+	  <InformationElement name="ESM cause" type="ESM cause" presence="M" isVZW="true" length="1"/>
+	  <InformationElement name="Protocol configuration options" type="Protocol configuration options" presence="O" isVZW="false" isFixLength="false" IEI="27" min-len="3" max-len="253"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="PDN DISCONNECT REJECT" msgType="NAS" layer="ESM" description="This message is sent by the network to the UE to reject release of a PDN connection">
+    <InformationElements>
+	  <InformationElement name="ESM cause" type="ESM cause" presence="M" isVZW="true" length="1"/>
+	  <InformationElement name="Protocol configuration options" type="Protocol configuration options" presence="O" isVZW="true" isFixLength="false" IEI="27" min-len="3" max-len="253"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="PDN DISCONNECT REQUEST" msgType="NAS" layer="ESM" description="This message is sent by the UE to the network to initiate release of a PDN connection">
+    <InformationElements>
+	  <InformationElement name="Linked EPS bearer identity" type="Linked EPS bearer identity" presence="M" isVZW="false" length="0.5"/>
+	  <InformationElement name="Spare half octet" type="Spare half octet" presence="M" isVZW="false" length="0.5"/>
+	  <InformationElement name="Protocol configuration options" type="Protocol configuration options" presence="O" isVZW="true" isFixLength="false" IEI="27" min-len="3" max-len="253"/>
+	</InformationElements>
+  </Message>
+  
+  <!-- RRC messages -->
+  <Message name="DLINFORMATIONTRANSFER" msgType="RRC" description="This message is used for the downlink transfer of dedicated NAS information">
+    <InformationElements>
+	</InformationElements>
+  </Message>
+  
+  <Message name="MEASUREMENTREPORT" msgType="RRC" description="This message is used for the indication of measurement results">
+    <InformationElements>
+	  <InformationElement name="MeasResults" asnName="measResults" presence="M" isVZW="true"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="PAGING" msgType="RRC" description="This message is used for the notification of one or more UEs">
+    <InformationElements>
+	  <InformationElement name="pagingUE-Identity" asnName="ue-Identity" presence="O" isVZW="true"/>
+	  <InformationElement name="cn-Domain" dispName="pagingRecord.cn-Domain" presence="O" isVZW="true"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="RRCCONNECTIONRECONFIGURATION" msgType="RRC" description="This message is the command to modify an RRC connection. It may convey information for
+	measurement configuration, mobility control, radio resource configuration (including RBs, MAC main configuration and physical channel configuration) including
+	any associated dedicated NAS information and security configuration">
+    <InformationElements>
+	  <InformationElement name="measConfig" presence="O" isVZW="true"/>
+	  <InformationElement name="targetPhysCellId" presence="CO" condition="HO" isVZW="true"/>
+	  <InformationElement name="T304" presence="CO" condition="HO" isVZW="true"/>
+	  <InformationElement name="newUE-Identity" presence="CO" condition="HO" isVZW="true"/>
+	  <InformationElement name="securityConfigHO" presence="CO" condition="HO" isVZW="true"/>
+	  <InformationElement name="radioResourceConfigDedicated" presence="O" isVZW="true"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="RRCCONNECTIONRECONFIGURATIONCOMPLETE" msgType="RRC" description="This message is used to confirm the successful completion of an RRC connection reconfiguration">
+    <InformationElements>
+	</InformationElements>
+  </Message>
+  
+  <Message name="RRCCONNECTIONREESTABLISHMENT" msgType="RRC" description="This message is used to resolve contention and to re-establish SRB 1">
+    <InformationElements>
+	  <InformationElement name="radioResourceConfigDedicated" presence="M" isVZW="true"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="RRCCONNECTIONREESTABLISHMENTCOMPLETE" msgType="RRC" description="This message is used to confirm the successful completion of an RRC connection reestablishment">
+    <InformationElements>
+	</InformationElements>
+  </Message>
+  
+  <Message name="RRCCONNECTIONREESTABLISHMENTREJECT" msgType="RRC" description="This message is used to indicate the rejection of an RRC connection reestablishment request">
+    <InformationElements>
+	</InformationElements>
+  </Message>
+  
+  <Message name="RRCCONNECTIONREESTABLISHMENTREQUEST" msgType="RRC" description="This message is used to request the reestablishment of an RRC connection">
+    <InformationElements>
+	  <InformationElement name="reestablishmentCause" presence="M" isVZW="true"/>
+	  <InformationElement name="c-RNTI" presence="M" isVZW="true"/>
+	  <InformationElement name="physCellId" presence="M" isVZW="true"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="RRCCONNECTIONREJECT" msgType="RRC" description="This message is used to reject the RRC connection establishment">
+    <InformationElements>
+	  <InformationElement name="waitTime" presence="M" isVZW="true"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="RRCCONNECTIONRELEASE" msgType="RRC" description="This message is used to command the release of an RRC connection">
+    <InformationElements>
+	  <InformationElement name="releaseCause" presence="M" isVZW="true"/>
+	  <InformationElement name="redirectedCarrierInfo" presence="O" isVZW="true"/>
+	  <InformationElement name="idleModeMobilityControlInfo" presence="O" isVZW="true"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="RRCCONNECTIONREQUEST" msgType="RRC" description="This message is used to request the establishment of an RRC connection">
+    <InformationElements>
+	  <InformationElement name="ue-Identity" presence="M" isVZW="true"/>
+	  <InformationElement name="establishmentCause" presence="M" isVZW="true"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="RRCCONNECTIONSETUP" msgType="RRC" description="This message is used to establish SRB1">
+    <InformationElements>
+	  <InformationElement name="radioResourceConfigDedicated" presence="M" isVZW="true"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="RRCCONNECTIONSETUPCOMPLETE" msgType="RRC" description="This message is used to confirm the successful completion of an RRC connection establishment">
+    <InformationElements>
+	</InformationElements>
+  </Message>
+  
+  <Message name="SECURITYMODECOMMAND" msgType="RRC" description="This message is used to command the activation of AS security">
+    <InformationElements>
+	  <InformationElement name="securityConfigSMC" presence="M" isVZW="true"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="SECURITYMODECOMPLETE" msgType="RRC" description="This message is used to confirm the successful completion of a security mode command">
+    <InformationElements>
+	</InformationElements>
+  </Message>
+  
+  <Message name="SECURITYMODEFAILURE" msgType="RRC" description="This message is used to indicate an unsuccessful completion of a security mode command">
+    <InformationElements>
+	</InformationElements>
+  </Message>
+  
+  <Message name="ULINFORMATIONTRANSFER" msgType="RRC" description="This message is used for uplink transfer of dedicated NAS information">
+    <InformationElements>
+	</InformationElements>
+  </Message>
+  
+  <Message name="UECAPABILITYENQUIRY" msgType="RRC" description="This message is used to request the transfer of UE radio access capabilities for E-UTRAN as well as for other RATs">
+    <InformationElements>
+	</InformationElements>
+  </Message>
+  
+  <Message name="UECAPABILITYINFORMATION" msgType="RRC" description="This message is used to transfer of UE radio access capabilities requested by the E-UTRAN">
+    <InformationElements>
+	  <InformationElement name="ue-CapabilityRAT-ContainerList" presence="M"/>
+	</InformationElements>
+  </Message>
+  
+  <!-- NOT IMPLEMENTED IN GENERATOR
+  <Message name="SystemInformation" msgType="RRC" description="This message is used to convey one or more System Information Blocks. All the SIBs included are transmitted with the same periodicity">
+    <InformationElements>
+	  <InformationElement name="sib2" presence="O"/>
+	  <InformationElement name="sib3" presence="O"/>
+	  <InformationElement name="sib4" presence="O"/>
+	  <InformationElement name="sib8" presence="O"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="ULHandoverPreparationTransfer" msgType="RRC" description="This message is used for the uplink transfer of handover related CDMA2000 information when requested by the higher layer">
+    <InformationElements>
+	  <InformationElement name="ulHandoverPreparationTransfer-r8" presence="M"/>
+	</InformationElements>
+  </Message>
+  
+  <Message name="CSFBParametersReponseCDMA2000" msgType="RRC" description="This message is used to provide the CDMA2000 1xRTT Parameters to the UE so the UE can register with 
+    the CDMA2000 1xRTT Network to support CSFB to CDMA2000 1xRTT">
+	<InformationElements>
+	</InformationElements>
+  </Message>
+  
+  <Message name="CounterCheckResponse" msgType="RRC" description="This message is used by the UE to respond to a CounterCheck message">
+    <InformationElements>
+	  <InformationElement name="counterCheckResponse-r8" presence="M"/>
+	</InformationElements>
+  </Message>
+  -->
+  
+</document>

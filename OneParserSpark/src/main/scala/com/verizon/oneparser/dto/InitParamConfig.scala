@@ -1,0 +1,26 @@
+package com.verizon.oneparser.dto
+
+case class InitParamConfig(id: Int = 0,
+                           param_code: String = "",
+                           key: String = "",
+                           value: String = "",
+                           qcomm_struct_chng: String = "",
+                           qcomm2_struct_chng: String = "",
+                           b192_struct_chng: String = "",
+                           b193_struct_chng: String = "",
+                           asn_struct_chng: String = "",
+                           nas_struct_chng: String = "",
+                           ip_struct_chng: String = "",
+                           qcomm_5g_struct_chng: String = "",
+                           qcomm_cnt_chk: String = "",
+                           qcomm2_cnt_chk: String = "",
+                           b192_cnt_chk: String = "",
+                           b193_cnt_chk: String = "",
+                           asn_cnt_chk: String = "",
+                           nas_cnt_chk: String = "",
+                           ip_cnt_chk: String = "",
+                           qcomm_5g_cnt_chk: String = "",
+                           current_week: String = "",
+                           hive_struct_chng: String = "",
+                           hive_cnt_chk: String = ""
+                          )
