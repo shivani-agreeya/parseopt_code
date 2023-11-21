@@ -1,0 +1,36 @@
+{
+  "type": "record",
+  "namespace": "com.verizon.oneparser.avroschemas",
+  "name": "ProcessParamValues",
+  "version": "1",
+  "fields": [
+    { "name": "id", "type": "int" },
+    { "name": "paramCode", "type":["string", "null"] },
+    { "name": "key", "type":["string", "null"] },
+    { "name": "value", "type":["string", "null"] },
+    { "name": "description", "type":["string", "null"] },
+    { "name": "creationTime", "type" : ["long", "null"] },
+    { "name": "dateModified", "type" : ["long", "null"] },
+    { "name": "qcommStructChng", "type":["string", "null"] },
+    { "name": "qcomm2StructChng", "type":["string", "null"] },
+    { "name": "b192StructChng", "type":["string", "null"] },
+
+    { "name": "b193StructChng", "type":["string", "null"] },
+    { "name": "asnStructChng", "type":["string", "null"] },
+    { "name": "nasStructChng", "type":["string", "null"] },
+    { "name": "ipStructChng", "type":["string", "null"] },
+    { "name": "qcomm5gStructChng", "type":["string", "null"] },
+    { "name": "qcommCntChk", "type":["string", "null"] },
+    { "name": "qcomm2CntChk", "type":["string", "null"] },
+    { "name": "b192CntChk", "type":["string", "null"] },
+    { "name": "b193CntChk", "type":["string", "null"] },
+    { "name": "asnCntChk", "type":["string", "null"] },
+
+    { "name": "nasCntChk", "type":["string", "null"] },
+    { "name": "ipCntChk", "type":["string", "null"] },
+    { "name": "qcomm5gCntChk", "type":["string", "null"] },
+    { "name": "currentWeek", "type":["string", "null"] },
+    { "name": "hiveStructChng", "type":["string", "null"] },
+    { "name": "hiveCntChk", "type":["string", "null"] }
+  ]
+}
